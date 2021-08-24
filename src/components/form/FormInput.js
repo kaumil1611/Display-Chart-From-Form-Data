@@ -37,7 +37,7 @@ const FormInput = (props) => {
                         <label htmlFor="yoursalary" className="sr-only">Salary</label>
                         <input type="number" className="form-control" id="yoursalary" onChange={onSalaryChangeHandler} placeholder="Salary" required/>
                     </div>
-                    <div>
+                    <div style={{margin: '10px'}}>
                     <DropdownButton id="dropdown-basic-button" onClick={e=> setSelectChart(e.target.title)} title="Select Chart">
                     {/* <DropdownButton id="dropdown-basic-button" onClick={e=> props.selectedChart(e.target.title)} title="Select Chart"> */}
                     {selectChart1.map((val,index)=>(
