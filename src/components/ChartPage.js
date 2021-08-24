@@ -1,9 +1,15 @@
 import React from "react";
-import { Bar, Line } from "react-chartjs-2";
+import { Bar, Pie } from "react-chartjs-2";
 
-const ChartPage = ({ inputData, chartSelection }) => {
+const ChartPage = ({ inputData,SelectDropDownData }) => {
+  
+
   const Labels = inputData.map((val) => val.name);
   const dataval = inputData.map((val) => val.amount);
+
+  console.log(dataval);
+
+  
 
   // const backgroundColor = [];
   // for (let i = 0; i < dataval.length; i++) {
@@ -75,48 +81,22 @@ const ChartPage = ({ inputData, chartSelection }) => {
         suggestedMin: 0,
         suggestedMax: 500,
       },
-      // [ {
-      //     ticks: {
-      //         min :0,
-      //         max: 1000,
-      //         stepSize : 30
-      //     },
-      // }
-      // ],
-
-      //   yAxes: [
-      //     {
-      //       ticks: {
-      //         min: 0,
-      //         max: 500,
-      //         stepSize: 20,
-      //         fontSize: 70,
-      //         fontColor: "#000",
-      //         backgroundColor:'green'
-      //       },
-      //     },
-      //   ],
-      //   xAxes: [
-      //     {
-      //       ticks: {
-      //         fontSize: 15,
-      //         fontColor: "#000",
-      //       },
-      //     },
-      //   ],
     },
   };
   let BarChart = <p>No chart Selected</p>;
-  if (Labels.length > 0 && dataval.length > 0) {
-    if (chartSelection === "Bar") {
+  if (SelectDropDownData) {
+    if (SelectDropDownData === "Bar") {
       BarChart = <Bar data={ChartData} options={options}></Bar>;
-    } else if (chartSelection === "Line") {
-      BarChart = <Line options={options} data={ChartData}></Line>;
+    } else if (SelectDropDownData === "Line") {
+      BarChart = <Pie options={options} data={ChartData}></Pie>;
     }
   }
 
   return (
     <div>
+      <form>
+      
+      </form>
       <div
         style={{
           paddingTop: "40px",
@@ -127,6 +107,8 @@ const ChartPage = ({ inputData, chartSelection }) => {
         }}
       >
         {BarChart}
+
+        
       </div>
     </div>
   );
